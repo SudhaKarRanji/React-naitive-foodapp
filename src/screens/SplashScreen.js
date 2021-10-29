@@ -15,6 +15,7 @@ const SplashScreen = () => {
        resizeMode="contain"
        style={styles.image} />
       <Text style={styles.titletext}>Food Delivery</Text>
+      <Text>hi</Text>
     </View>
   );
 };
