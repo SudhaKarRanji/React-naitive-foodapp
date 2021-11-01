@@ -1,20 +1,19 @@
-import React from "react";
-import {NavigationContainer} from "@react-navigation/native";
-import {createStackNavigator} from "@react-navigation/stack";
-import { SplashScreen, WelcomeScreen } from "../screens";
+import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import {SplashScreen, WelcomeScreen} from '../screens';
 
 const Stack = createStackNavigator();
 
 const Navigators = () => {
-    return (
-        <NavigationContainer>
-            <Stack.Navigator screenOptions={{headerShown: false}}>
-            <Stack.Screen name="Welcome" component={WelcomeScreen} />
-
-                <Stack.Screen name="SplashScreen" component={SplashScreen} />
-            </Stack.Navigator>
-        </NavigationContainer>
-    );
+  return (
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Screen name="SplashScreen" component={SplashScreen} />
+        <Stack.Screen name="Welcome" component={WelcomeScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 };
 
 export default Navigators;

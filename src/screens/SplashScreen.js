@@ -1,8 +1,15 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import {Image, StatusBar, StyleSheet, Text, View} from 'react-native';
 import {Colors, Fonts, Images} from '../constants';
 
-const SplashScreen = () => {
+const SplashScreen = ({navigation}) => {
+
+  useEffect(() => {
+    setTimeout(() => {
+      navigation.navigate('Welcome');
+    }, 3000);      
+     }, []);
+
   return (
     <View style={styles.container}>
       <StatusBar
@@ -15,7 +22,7 @@ const SplashScreen = () => {
        resizeMode="contain"
        style={styles.image} />
       <Text style={styles.titletext}>Food Delivery</Text>
-      <Text>hi</Text>
+ 
     </View>
   );
 };

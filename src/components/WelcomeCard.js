@@ -13,7 +13,7 @@ const WelcomeCard = ({title,image,content}) => {
     )
 }
 
-export default WelcomeCard
+export default WelcomeCard;
 
 const styles = StyleSheet.create({
     container:{
