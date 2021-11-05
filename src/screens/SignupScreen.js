@@ -1,22 +1,13 @@
 import React, {useState} from 'react';
-import {
-  StatusBar,
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  Image,
-} from 'react-native';
+import {StyleSheet, Text, View, StatusBar, TextInput ,TouchableOpacity,Image} from 'react-native';
+import {Colors, Fonts,Images} from '../constants';
+import {Display} from '../utils';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
-import {TextInput} from 'react-native-gesture-handler';
-import {Colors, Fonts, Images} from '../constants';
 
-import {Display} from '../utils';
-import {ToggleButton} from '../components';
+const SignupScreen = ({navigation}) => {
+    const [ispasswordshow, setpasswordShow] = useState(false);
 
-const SigninScreen = ({navigation}) => {
-  const [ispasswordshow, setpasswordShow] = useState(false);
 
   return (
     <View style={styles.container}>
@@ -31,11 +22,11 @@ const SigninScreen = ({navigation}) => {
           size={30}
           onPress={() => navigation.goBack()}
         />
-        <Text style={styles.headerTitle}>Sign In</Text>
+        <Text style={styles.headerTitle}>Sign Up</Text>
       </View>
-      <Text style={styles.title}>Welcome</Text>
+      <Text style={styles.title}>Create Account</Text>
       <Text style={styles.content}>
-        Enter the Username and Password and Enjoy the Food
+        Enter your email and password to create an account
       </Text>
       <View style={styles.inputContainer}>
         <View style={styles.inputsub}>
@@ -47,6 +38,22 @@ const SigninScreen = ({navigation}) => {
           />
           <TextInput
             placeholder="Username"
+            placeholderTextColor={Colors.DEFAULT_GREY}
+            selectionColor={Colors.DEFAULT_GREY}
+            style={styles.inputText}
+          />
+        </View>
+      </View>
+      <View style={styles.inputContainer}>
+        <View style={styles.inputsub}>
+          <Feather
+            name="mail"
+            size={20}
+            color={Colors.DEFAULT_GREY}
+            style={{marginRight: 10}}
+          />
+          <TextInput
+            placeholder="Email Address"
             placeholderTextColor={Colors.DEFAULT_GREY}
             selectionColor={Colors.DEFAULT_GREY}
             style={styles.inputText}
@@ -69,7 +76,7 @@ const SigninScreen = ({navigation}) => {
             style={styles.inputText}
           />
           <Feather
-            name={ispasswordshow ? 'eye' : 'eye-off'}
+            name={ispasswordshow ? 'eye': 'eye-off'}
             size={20}
             color={Colors.DEFAULT_GREY}
             style={{marginRight: 10}}
@@ -77,25 +84,9 @@ const SigninScreen = ({navigation}) => {
           />
         </View>
       </View>
-      
-      <View style={styles.fpcontainer}>
-        <View style={styles.toggleContainer}>
-          <ToggleButton size={0.8}/>
-          <Text style={styles.remember}>Remember Me</Text>
-        </View>
-        <Text style={styles.passwordtext}
-        onPress={() => navigation.navigate('ForgotPassword')}>
-          Forgot Password?
-        </Text>
-      </View>
-      <TouchableOpacity style={styles.signinButton}>
-        <Text style={styles.SigninText}>Sign In</Text>
+      <TouchableOpacity style={styles.signinButton} onPress={() => navigation.navigate('RegisterPhone')}>
+        <Text style={styles.SigninText}>Create Account</Text>
       </TouchableOpacity>
-      <View style={styles.signupContainer}>
-        <Text style={styles.accountText}>Dont have an account</Text>
-        <Text style={styles.signupText}
-        onPress={() => navigation.navigate('Signup')}>Sign Up</Text>
-      </View>
       <Text style={styles.orText}>OR</Text>
       <TouchableOpacity style={styles.facebookButton}>
         <View style={styles.socialButtonsContainer}>
@@ -117,12 +108,12 @@ const SigninScreen = ({navigation}) => {
   );
 };
 
-export default SigninScreen;
+export default SignupScreen;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.DEFAULT_WHITE,
+    color: Colors.DEFAULT_WHITE,
   },
   headerContainer: {
     flexDirection: 'row',
@@ -144,7 +135,7 @@ const styles = StyleSheet.create({
     lineHeight: 20 * 1.4,
     marginTop: 10,
     marginBottom: 10,
-    marginHorizontal: 20,
+    marginHorizontal: 10,
   },
   content: {
     fontSize: 20,
@@ -158,6 +149,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     borderRadius: 8,
     borderWidth: 0.5,
+    marginTop: 5,
     borderColor: Colors.LIGHT_GREY2,
     justifyContent: 'center',
   },
@@ -173,25 +165,6 @@ const styles = StyleSheet.create({
     color: Colors.DEFAULT_BLACK,
     flex: 1,
   },
-  fpcontainer: {
-    marginHorizontal: 20,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  remember: {
-    marginLeft: 10,
-    fontSize: 12,
-    lineHeight: 12 * 1.4,
-    color: Colors.DEFAULT_GREY,
-    fontFamily: Fonts.POPPINS_MEDIUM,
-  },
-  passwordtext: {
-    fontSize: 12,
-    lineHeight: 12 * 1.4,
-    color: Colors.DEFAULT_GREEN,
-    fontFamily: Fonts.POPPINS_BOLD,
-  },
   signinButton: {
     backgroundColor: Colors.DEFAULT_GREEN,
     borderRadius: 8,
@@ -200,32 +173,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 20,
+    marginBottom:10,
   },
   SigninText: {
     fontSize: 18,
     lineHeight: 18 * 1.4,
     color: Colors.DEFAULT_WHITE,
     fontFamily: Fonts.POPPINS_MEDIUM,
-  },
-  signupContainer: {
-    marginHorizontal: 20,
-    justifyContent: 'center',
-    paddingVertical: 20,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  accountText: {
-    fontSize: 13,
-    lineHeight: 13 * 1.4,
-    color: Colors.DEFAULT_BLACK,
-    fontFamily: Fonts.POPPINS_MEDIUM,
-  },
-  signupText: {
-    fontSize: 13,
-    lineHeight: 13 * 1.4,
-    color: Colors.DEFAULT_GREEN,
-    fontFamily: Fonts.POPPINS_MEDIUM,
-    marginLeft: 5,
   },
   orText: {
     fontSize: 15,
@@ -274,18 +228,5 @@ const styles = StyleSheet.create({
     fontSize: 13,
     lineHeight: 13 * 1.4,
     fontFamily: Fonts.POPPINS_MEDIUM,
-  },
-  toggleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  errorMessage: {
-    fontSize: 10,
-    lineHeight: 10 * 1.4,
-    color: Colors.DEFAULT_RED,
-    fontFamily: Fonts.POPPINS_MEDIUM,
-    marginHorizontal: 20,
-    marginTop: 3,
-    marginBottom: 10,
   },
 });
