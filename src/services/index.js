@@ -1,5 +1,3 @@
 import StaticImageService from './StaticImageService';
 
-export default {
-  StaticImageService,
-};
+export {StaticImageService};

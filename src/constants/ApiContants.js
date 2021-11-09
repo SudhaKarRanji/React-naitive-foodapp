@@ -1,5 +1,5 @@
-const config = require('../../package.json').projectConfig;
-const BACKEND_BASE_URL = config.backendApiBaseUrl;
+// const config = require('../../package.json').projectConfig;
+// const BACKEND_BASE_URL = config.backendApiBaseUrl;
 
 const COUNTRY_FLAG = {
   BASE_URL: `https://www.countryflags.io`,
@@ -7,11 +7,11 @@ const COUNTRY_FLAG = {
   STYLE: {FLAT: 'flat', SHINY: 'shiny'},
 };
 
-const BACKEND_API = {
-  BASE_API_URL: `${BACKEND_BASE_URL}/api`,
-  REGISTER: '/register',
-  LOGIN: '/login',
-  USER_EXIST: '/user-exist',
-};
+// const BACKEND_API = {
+//   BASE_API_URL: `${BACKEND_BASE_URL}/api`,
+//   REGISTER: '/register',
+//   LOGIN: '/login',
+//   USER_EXIST: '/user-exist',
+// };
 
-export default {COUNTRY_FLAG, BACKEND_API};
+export default {COUNTRY_FLAG};
